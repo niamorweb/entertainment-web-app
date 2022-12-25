@@ -1,0 +1,124 @@
+#trending {
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .img_medium {
+    display: none;
+  }
+
+  .img_large {
+    display: none;
+  }
+  display: flex;
+  gap: 20px;
+
+  #slideshow {
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+
+    &::-webkit-scrollbar {
+      background-color: var(--color-semi-dark-blue);
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-red);
+    }
+  }
+  .content__trending__video {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    min-width: 257px;
+    pointer-events: none;
+
+    .img_content {
+      width: 100%;
+    }
+    .bookmark {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 12px 12px;
+      border-radius: 50%;
+      background-color: rgba(16, 20, 30, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 4;
+    }
+    .infos-and-title {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .category {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .infos {
+      display: flex;
+      align-items: center;
+      color: var(--color-white-weak-opacity);
+      font-size: var(--font-size-body-m);
+    }
+    .separator_point {
+      width: 3px;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.75);
+      margin: 0 8px;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  #trending {
+    .content__trending__video {
+      min-width: 300px !important;
+      height: unset;
+    }
+  }
+  .img_medium {
+    display: block !important ;
+  }
+
+  .img_small {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  #trending {
+    .content__trending__video {
+      min-width: 350px !important;
+    }
+  }
+  .img_medium {
+    display: none !important;
+  }
+
+  .img_large {
+    display: block !important;
+  }
+}
+
+// #slideshow {
+//   display: flex;
+// }
+
+// .content__trending__video {
+//   flex: 0 0 auto;
+//   width: 300px; /* Set the width of the images */
+//   height: 200px; /* Set the height of the images */
+//   margin-right: 10px; /* Add some space between the images */
+// }

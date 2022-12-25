@@ -1,0 +1,42 @@
+#searchBar {
+  margin-top: 2rem;
+  color: white;
+
+  form {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+  button {
+    background: transparent;
+    border: none;
+
+    img {
+      width: 24px;
+    }
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    padding: 1rem 1rem;
+    width: 100%;
+    font-size: var(--font-size-heading-s);
+  color: white;
+}
+}
+
+@media (min-width: 600px) {
+  #searchBar {
+    input {
+      font-size: var(--font-size-heading-m);
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+  }
+}
+
