@@ -55,7 +55,10 @@ export default function Trending({ dataVideos, setDataVideos }) {
                   </div>
                   <span className="title">{x.title}</span>
                 </div>
-                <div onClick={() => handleBookmark(x)} className="bookmark">
+                <div
+                  onClick={() => handleBookmark(x)}
+                  className="bookmark cursor-pointer"
+                >
                   {x.isBookmarked ? (
                     <img src="../../../assets/icon-bookmark-full.svg" alt="" />
                   ) : (

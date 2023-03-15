@@ -17,17 +17,21 @@ export default function NavBar({ userConnected, setUserConnected }) {
       id="navbar"
       className=" shadow-md z-20 fixed left-4 right-4 h-fit bottom-4 md:top-4 md:h-auto md:right-auto  "
     >
-      <div className="py-8 px-6 rounded-xl shadow-xl  bg-colorSemiDarkBlue  flex flex-row items-center justify-between w-full md:flex-col md:h-full">
+      <div className="py-8 px-6 lg:px-9 rounded-xl shadow-xl  bg-colorSemiDarkBlue  flex flex-row items-center justify-between w-full md:flex-col md:h-full">
         <div className="logo h-fit">
           <NavLink to="/">
-            <img className="w-6 h-fit " src="../../assets/logo.svg" alt="" />
+            <img
+              className="w-6 xl:w-8 h-fit "
+              src="../../assets/logo.svg"
+              alt=""
+            />
           </NavLink>
         </div>
         <nav className="nav-pages h-fit flex gap-8 items-center md:flex-col md:w-fit ">
           <NavLink to="/" activeclassname="active">
             {" "}
             <svg
-              className="w-6 h-fit "
+              className="w-6 xl:w-8 h-fit "
               width="100"
               height="100"
               viewBox="0 0 20 20"
@@ -41,7 +45,7 @@ export default function NavBar({ userConnected, setUserConnected }) {
           </NavLink>
           <NavLink to="/movies" activeclassname="active">
             <svg
-              className="w-6 h-fit"
+              className="w-6 xl:w-8 h-fit"
               width="100"
               height="100"
               viewBox="0 0 20 20"
@@ -55,7 +59,7 @@ export default function NavBar({ userConnected, setUserConnected }) {
           </NavLink>
           <NavLink to="/series">
             <svg
-              className="w-6 h-fit"
+              className="w-6 xl:w-8 h-fit"
               width="100"
               height="100"
               viewBox="0 0 20 20"
@@ -70,7 +74,7 @@ export default function NavBar({ userConnected, setUserConnected }) {
           {userConnected ? (
             <NavLink to="/bookmarks">
               <svg
-                className="w-6 h-fit"
+                className="w-6 xl:w-8 h-fit"
                 width="100"
                 height="100"
                 viewBox="0 0 20 20"
@@ -87,7 +91,7 @@ export default function NavBar({ userConnected, setUserConnected }) {
         {/* <NavLink to="/account" activeclassname="active"> */}
         <div className=" h-fit relative">
           <img
-            className="w-6 h-fit cursor-pointer"
+            className="w-6 xl:w-8 h-fit cursor-pointer"
             onClick={() => handleNavAccount()}
             src="../../assets/user.png"
             alt=""
