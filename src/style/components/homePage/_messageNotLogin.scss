@@ -1,13 +1,13 @@
 .message_not_login {
-  background-color: rgba(255, 255, 255, 0.815);
-  color: black;
+  background-color: var(--color-white);
+  color: var(--color-dark-blue);
   padding: 1rem 3rem;
   border-radius: 10px;
   position: fixed;
   top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  animation: translationAnim 0.4s;
+  animation: translationAnim 0.2s;
 }
 
 @keyframes translationAnim {

@@ -13,7 +13,6 @@ export default function PresentationFilmSerie({
   const updateId = parseInt(id);
 
   const handleBookmarkVideo = (e) => {
-    console.log("dd");
     if (userConnected === true) {
       const copyDataVideos = [...dataVideos];
       const title = e.title;
@@ -22,12 +21,17 @@ export default function PresentationFilmSerie({
         copyDataVideos[foundIndex].isBookmarked = false;
       } else copyDataVideos[foundIndex].isBookmarked = true;
       setDataVideos(copyDataVideos);
+    } else {
+      setMessageNotLogIn(true);
+      setTimeout(() => {
+        setMessageNotLogIn(false);
+      }, 5000);
     }
   };
   return (
     <div className="app_container">
       <NavLink to="/">
-        <button className="bg-slate-300 text-black font-semibold text-sm  px-4 py-1 rounded-md  ">
+        <button className="bg-colorGreyishBlue text-colorWhite   font-semibold text-sm  px-4 py-1 rounded-md  ">
           Back
         </button>
       </NavLink>
@@ -41,10 +45,10 @@ export default function PresentationFilmSerie({
                 <div className="overflow-hidden">
                   <div className="flex gap-6 items-center">
                     <span className="text-xl ">{x.title}</span>
-                    <span className="text-sm border-[1px] border-red-500 rounded-md px-3 py-1  text-red-500 ">
+                    <span className="text-sm border-[1px] border-colorRed  rounded-md px-3 py-1  text-colorRed ">
                       {x.category}
                     </span>
-                    <span className="text-sm border-[1px] border-red-500 rounded-md px-3 py-1  text-red-500 ">
+                    <span className="text-sm border-[1px] border-colorRed rounded-md px-3 py-1  text-colorRed ">
                       {x.rating}
                     </span>
                   </div>
@@ -69,19 +73,19 @@ export default function PresentationFilmSerie({
                     {x.isBookmarked ? (
                       <button
                         onClick={() => handleBookmarkVideo(x)}
-                        className="bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-md md:px-8 "
+                        className="bg-slate-700 text-colorWhite text-sm font-semibold px-4 py-2 rounded-md md:px-8 "
                       >
                         Remove of bookmarks
                       </button>
                     ) : (
                       <button
                         onClick={() => handleBookmarkVideo(x)}
-                        className="bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-md md:px-8 "
+                        className="bg-colorGreyishBlue  text-sm text-colorWhite  font-semibold px-4 py-2 rounded-md md:px-8 "
                       >
                         Add to bookmarks
                       </button>
                     )}
-                    <button className="bg-red-500 text-gray-800   font-semibold px-4 py-2 rounded-md md:px-8 ">
+                    <button className="bg-colorRed text-colorDarkBlue text-sm   font-semibold px-4 py-2 rounded-md md:px-8 ">
                       Watch
                     </button>
                   </div>

@@ -23,12 +23,7 @@ export default function Home({
   }, []);
 
   return (
-    <div className="app_container lg:pl-[9rem]">
-      <NavBar
-        userConnected={userConnected}
-        setUserConnected={setUserConnected}
-      />
-
+    <div className="app_container">
       <main id="home">
         <SearchBar
           dataVideos={dataVideos}

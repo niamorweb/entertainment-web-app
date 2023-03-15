@@ -51,7 +51,7 @@ export default function ContainerVideos({
   };
   return (
     <section id="containerMovies">
-      <h1>{titlePage}</h1>
+      <span className="font-semibold text-lg lg:text-xl">{titlePage}</span>
       <div className="grid_container__videos">
         {dataVideos.map((x) => {
           if (x.category === category || category === "")
@@ -60,7 +60,7 @@ export default function ContainerVideos({
                 <div className="content_video">
                   <img
                     onClick={() => handleSeeContent(x)}
-                    className="img_video"
+                    className="img_video cursor-pointer  "
                     src={x.thumbnail.regular.small}
                     alt=""
                   />
@@ -80,7 +80,7 @@ export default function ContainerVideos({
                       />
                     )}
                   </div>
-                  <div className="infos-and-title">
+                  <div className="infos-and-title mt-4">
                     <div className="infos">
                       <span>{x.year}</span>
                       <div className="separator_point"></div>

@@ -51,7 +51,7 @@ h1 {
 }
 
 .app_container {
-  padding-bottom: 7rem;
+  padding-bottom: 9rem;
   max-width: 1800px;
   margin: auto;
 }
@@ -66,9 +66,9 @@ h1 {
     font-size: var(--font-size-heading-l);
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .app_container {
-    padding-bottom: 0;
+    padding-bottom: 5rem;
     padding-left: 7rem;
     padding-top: 3rem;
   }
@@ -147,7 +147,6 @@ h1 {
   overflow: hidden;
   position: relative;
   min-width: 257px;
-  pointer-events: none;
 }
 #trending .content__trending__video .img_content {
   width: 100%;
@@ -214,16 +213,16 @@ h1 {
   }
 }
 .message_not_login {
-  background-color: rgba(255, 255, 255, 0.815);
-  color: black;
+  background-color: var(--color-white);
+  color: var(--color-dark-blue);
   padding: 1rem 3rem;
   border-radius: 10px;
   position: fixed;
   top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  -webkit-animation: translationAnim 0.4s;
-          animation: translationAnim 0.4s;
+  -webkit-animation: translationAnim 0.2s;
+          animation: translationAnim 0.2s;
 }
 
 @-webkit-keyframes translationAnim {
@@ -307,7 +306,9 @@ h1 {
 .grid_container__videos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  row-gap: 2.4rem;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
 }
 .grid_container__videos .content_video {
   position: relative;

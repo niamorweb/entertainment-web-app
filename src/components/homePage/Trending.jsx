@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Trending({ dataVideos, setDataVideos }) {
-  const handleTest = (e) => {
+  const handleBookmark = (e) => {
     const copyDataVideos = [...dataVideos];
     const title = e.title;
     var foundIndex = dataVideos.findIndex((e) => e.title == title);
@@ -13,7 +13,7 @@ export default function Trending({ dataVideos, setDataVideos }) {
 
   return (
     <section id="trending">
-      <h1>Trending</h1>
+      <span className="font-semibold text-lg lg:text-xl">Trending</span>
 
       <div id="slideshow">
         {dataVideos.map((x) => {
@@ -55,7 +55,7 @@ export default function Trending({ dataVideos, setDataVideos }) {
                   </div>
                   <span className="title">{x.title}</span>
                 </div>
-                <div onClick={() => handleTest(x)} className="bookmark">
+                <div onClick={() => handleBookmark(x)} className="bookmark">
                   {x.isBookmarked ? (
                     <img src="../../../assets/icon-bookmark-full.svg" alt="" />
                   ) : (

@@ -1,7 +1,8 @@
 .grid_container__videos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  row-gap: 2.4rem;
+  column-gap: 1.5rem;
 
   .content_video {
     position: relative;

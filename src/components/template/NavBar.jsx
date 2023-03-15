@@ -15,23 +15,19 @@ export default function NavBar({ userConnected, setUserConnected }) {
   return (
     <section
       id="navbar"
-      className=" shadow-lg z-20 fixed left-4 right-4 h-fit bottom-4 lg:top-4 lg:h-auto lg:right-auto  "
+      className=" shadow-md z-20 fixed left-4 right-4 h-fit bottom-4 md:top-4 md:h-auto md:right-auto  "
     >
-      <div className="lg:py-8 lg:px-6 px-4 py-4 rounded-lg shadow-xl  bg-black flex flex-row items-center justify-between w-full lg:flex-col lg:h-full">
+      <div className="py-8 px-6 rounded-xl shadow-xl  bg-colorSemiDarkBlue  flex flex-row items-center justify-between w-full md:flex-col md:h-full">
         <div className="logo h-fit">
           <NavLink to="/">
-            <img
-              className="w-4 lg:w-6 h-fit "
-              src="../../assets/logo.svg"
-              alt=""
-            />
+            <img className="w-6 h-fit " src="../../assets/logo.svg" alt="" />
           </NavLink>
         </div>
-        <nav className="nav-pages h-fit flex gap-8 items-center lg:flex-col lg:w-fit ">
+        <nav className="nav-pages h-fit flex gap-8 items-center md:flex-col md:w-fit ">
           <NavLink to="/" activeclassname="active">
             {" "}
             <svg
-              className="w-4 lg:w-6 h-fit "
+              className="w-6 h-fit "
               width="100"
               height="100"
               viewBox="0 0 20 20"
@@ -45,7 +41,7 @@ export default function NavBar({ userConnected, setUserConnected }) {
           </NavLink>
           <NavLink to="/movies" activeclassname="active">
             <svg
-              className="w-4 lg:w-6 h-fit"
+              className="w-6 h-fit"
               width="100"
               height="100"
               viewBox="0 0 20 20"
@@ -59,7 +55,7 @@ export default function NavBar({ userConnected, setUserConnected }) {
           </NavLink>
           <NavLink to="/series">
             <svg
-              className="w-4 lg:w-6 h-fit"
+              className="w-6 h-fit"
               width="100"
               height="100"
               viewBox="0 0 20 20"
@@ -74,7 +70,7 @@ export default function NavBar({ userConnected, setUserConnected }) {
           {userConnected ? (
             <NavLink to="/bookmarks">
               <svg
-                className="w-4 lg:w-6 h-fit"
+                className="w-6 h-fit"
                 width="100"
                 height="100"
                 viewBox="0 0 20 20"
@@ -91,18 +87,18 @@ export default function NavBar({ userConnected, setUserConnected }) {
         {/* <NavLink to="/account" activeclassname="active"> */}
         <div className=" h-fit relative">
           <img
-            className="w-4 lg:w-6 h-fit cursor-pointer"
+            className="w-6 h-fit cursor-pointer"
             onClick={() => handleNavAccount()}
             src="../../assets/user.png"
             alt=""
           />
           {showAccountNav ? (
             userConnected ? (
-              <div className="account_box absolute bg-red-500 text-white font-semibold px-3 py-1 rounded-md -top-[3rem] right-0 lg:top-0 lg:-right-[6rem]">
+              <div className="account_box absolute bg-red-500 text-white font-semibold px-3 py-1 rounded-md -top-[3rem] right-0 md:top-0 md:-right-[6rem]">
                 <button onClick={() => handleLogout()}>Logout</button>{" "}
               </div>
             ) : (
-              <div className="account_box absolute flex gap-2 lg:flex-col font-semibold -top-[3rem] right-0 lg:-top-[1rem] lg:-right-[6rem]">
+              <div className="account_box absolute flex gap-2 md:flex-col font-semibold -top-[3rem] right-0 md:-top-[1rem] md:-right-[6rem]">
                 <NavLink to="/auth">
                   <button className=" bg-red-500 text-white px-3 py-1  rounded-md">
                     Login
