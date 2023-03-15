@@ -30,7 +30,6 @@ body {
   color: var(--color-white);
 }
 
-
 html {
   font-family: "Outfit", sans-serif;
 }
@@ -45,12 +44,18 @@ main {
   gap: 40px;
 }
 
-button{
+button {
   cursor: pointer;
 }
 h1 {
   font-weight: 300;
   font-size: var(--font-size-heading-s);
+}
+
+.app_container {
+  padding-bottom: 7rem;
+  max-width: 1800px;
+  margin: auto;
 }
 @media (min-width: 600px) {
   h1 {
@@ -64,14 +69,10 @@ h1 {
   }
 }
 
-@media (min-width: 1000px) {
-  #app_container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  main {
-    width: 85%;
+@media (min-width: 1024px) {
+  .app_container {
+    padding-bottom: 0;
+    padding-left: 7rem;
+    padding-top: 3rem;
   }
 }

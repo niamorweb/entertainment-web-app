@@ -1,0 +1,57 @@
+[
+  {
+    "id": "img_a1",
+    "img": "/assets/default_img_account/default_img__animal1.png",
+    "category": "animal"
+  },
+  {
+    "id": "img_a2",
+    "img": "/assets/default_img_account/default_img__animal2.png",
+    "category": "animal"
+  },
+  {
+    "id": "img_a3",
+    "img": "/assets/default_img_account/default_img__animal3.png",
+    "category": "animal"
+  },
+  {
+    "id": "img_a4",
+    "img": "/assets/default_img_account/default_img__animal4.png",
+    "category": "animal"
+  },
+  {
+    "id": "img_a5",
+    "img": "/assets/default_img_account/default_img__animal5.png",
+    "category": "animal"
+  },
+  {
+    "id": "img_n1",
+    "img": "/assets/default_img_account/default_img__nature1.png",
+    "category": "nature"
+  },
+  {
+    "id": "img_n2",
+    "img": "/assets/default_img_account/default_img__nature2.png",
+    "category": "nature"
+  },
+  {
+    "id": "img_n3",
+    "img": "/assets/default_img_account/default_img__nature3.png",
+    "category": "nature"
+  },
+  {
+    "id": "img_n4",
+    "img": "/assets/default_img_account/default_img__nature4.png",
+    "category": "nature"
+  },
+  {
+    "id": "img_n5",
+    "img": "/assets/default_img_account/default_img__nature5.png",
+    "category": "nature"
+  },
+  {
+    "id": "img_n6",
+    "img": "/assets/default_img_account/default_img__nature6.png",
+    "category": "nature"
+  }
+]

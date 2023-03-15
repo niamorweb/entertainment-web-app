@@ -49,7 +49,6 @@ export default function Trending({ dataVideos, setDataVideos }) {
                         alt=""
                       />
                       {x.category}
-                      {x.category}
                     </span>
                     <div className="separator_point"></div>
                     <span className="rating">{x.rating}</span>

@@ -14,7 +14,8 @@ export default function Bookmarks({
   numberResults,
   setNumberResults,
   setUserBookmarksVideos,
-  setUserConnected
+  setUserConnected,
+  setMessageNotLogIn,
 }) {
   const countBookmarkedVideos = dataVideos.filter(
     (object) => object.isBookmarked === true
@@ -24,8 +25,11 @@ export default function Bookmarks({
     setSearchMoviesSeries("");
   }, []);
   return (
-    <div id="app_container">
-      <NavBar userConnected={userConnected} setUserConnected={setUserConnected} />
+    <div className="app_container">
+      <NavBar
+        userConnected={userConnected}
+        setUserConnected={setUserConnected}
+      />
       <main>
         <SearchBar
           dataVideos={dataVideos}
@@ -36,13 +40,17 @@ export default function Bookmarks({
           countBookmarkedVideos === 0 ? (
             <span className="no_videos_bookmarked">
               {" "}
-              <h1 style={{ textAlign: 'center'}}> You have no bookmark, nothing to show</h1>
+              <h1 style={{ textAlign: "center" }}>
+                {" "}
+                You have no bookmark, nothing to show
+              </h1>
             </span>
           ) : (
             <ContainerVideos
               setDataVideos={setDataVideos}
               dataVideos={dataVideos}
               setUserBookmarksVideos={setUserBookmarksVideos}
+              setMessageNotLogIn={setMessageNotLogIn}
             />
           )
         ) : (
@@ -52,6 +60,7 @@ export default function Bookmarks({
             dataVideos={dataVideos}
             numberResults={numberResults}
             setUserBookmarksVideos={setUserBookmarksVideos}
+            setMessageNotLogIn={setMessageNotLogIn}
           />
         )}
       </main>

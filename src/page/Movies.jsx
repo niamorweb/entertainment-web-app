@@ -15,14 +15,14 @@ export default function Movies({
   setNumberResults,
   setUserConnected,
   setUserBookmarksVideos,
+  setMessageNotLogIn,
 }) {
   useEffect(() => {
     setSearchMoviesSeries("");
   }, []);
 
   return (
-    <div id="app_container">
-      <NavBar userConnected={userConnected} setUserConnected={setUserConnected}/>
+    <div className="app_container">
       <main>
         <SearchBar
           dataVideos={dataVideos}
@@ -34,6 +34,7 @@ export default function Movies({
             setDataVideos={setDataVideos}
             dataVideos={dataVideos}
             setUserBookmarksVideos={setUserBookmarksVideos}
+            setMessageNotLogIn={setMessageNotLogIn}
           />
         ) : (
           <ContainerResultsSearch
@@ -42,6 +43,8 @@ export default function Movies({
             dataVideos={dataVideos}
             numberResults={numberResults}
             setUserBookmarksVideos={setUserBookmarksVideos}
+            setMessageNotLogIn={setMessageNotLogIn}
+            userConnected={userConnected}
           />
         )}
       </main>

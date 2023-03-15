@@ -5,6 +5,8 @@ export default function ContainerResultsSearch({
   searchMoviesSeries,
   numberResults,
   setDataVideos,
+  setMessageNotLogIn,
+  userConnected,
   setUserBookmarksVideos,
 }) {
   let varPathname = window.location.pathname;
@@ -29,13 +31,20 @@ export default function ContainerResultsSearch({
   }
 
   const handleBookmarkVideo = (e) => {
-    const copyDataVideos = [...dataVideos];
-    const title = e.title;
-    var foundIndex = dataVideos.findIndex((e) => e.title == title);
-    if (copyDataVideos[foundIndex].isBookmarked === true) {
-      copyDataVideos[foundIndex].isBookmarked = false;
-    } else copyDataVideos[foundIndex].isBookmarked = true;
-    setDataVideos(copyDataVideos);
+    if (userConnected === true) {
+      const copyDataVideos = [...dataVideos];
+      const title = e.title;
+      var foundIndex = dataVideos.findIndex((e) => e.title == title);
+      if (copyDataVideos[foundIndex].isBookmarked === true) {
+        copyDataVideos[foundIndex].isBookmarked = false;
+      } else copyDataVideos[foundIndex].isBookmarked = true;
+      setDataVideos(copyDataVideos);
+    } else {
+      setMessageNotLogIn(true);
+      setTimeout(() => {
+        setMessageNotLogIn(false);
+      }, 5000);
+    }
   };
 
   return (
@@ -51,54 +60,61 @@ export default function ContainerResultsSearch({
             )
 
             .map((x) => {
-              if (x.category === category || category === "")
-                if (x.isBookmarked === isBookmarked || isBookmarked === null)
-                  return (
-                    <div className="content_video">
-                      <img
-                        className="img_video"
-                        src={x.thumbnail.regular.small}
-                        alt=""
-                      />
-                      <div
-                        onClick={() => handleBookmarkVideo(x)}
-                        className="bookmark"
-                      >
-                        {x.isBookmarked ? (
-                          <img
-                            src="../../../assets/icon-bookmark-full.svg"
-                            alt=""
-                          />
-                        ) : (
-                          <img
-                            src="../../../assets/icon-bookmark-empty.svg"
-                            alt=""
-                          />
-                        )}
-                      </div>
-                      <div className="infos-and-title">
-                        <div className="infos">
-                          <span>{x.year}</span>
-                          <div className="separator_point"></div>
-                          <span className="category">
-                            {" "}
+              if (x.title.includes(searchMoviesSeries)) {
+                if (x.category === category || category === "") {
+                  if (
+                    x.isBookmarked === isBookmarked ||
+                    isBookmarked === null
+                  ) {
+                    return (
+                      <div className="content_video">
+                        <img
+                          className="img_video"
+                          src={x.thumbnail.regular.small}
+                          alt=""
+                        />
+                        <div
+                          onClick={() => handleBookmarkVideo(x)}
+                          className="bookmark"
+                        >
+                          {x.isBookmarked ? (
                             <img
-                              src={
-                                x.category === "Movie"
-                                  ? "../../assets/icon-category-movie.svg"
-                                  : "../../assets/icon-category-tv.svg"
-                              }
+                              src="../../../assets/icon-bookmark-full.svg"
                               alt=""
                             />
-                            {x.category}
-                          </span>
-                          <div className="separator_point"></div>
-                          <span>{x.rating}</span>
+                          ) : (
+                            <img
+                              src="../../../assets/icon-bookmark-empty.svg"
+                              alt=""
+                            />
+                          )}
                         </div>
-                        <span className="title">{x.title}</span>
+                        <div className="infos-and-title">
+                          <div className="infos">
+                            <span>{x.year}</span>
+                            <div className="separator_point"></div>
+                            <span className="category">
+                              {" "}
+                              <img
+                                src={
+                                  x.category === "Movie"
+                                    ? "../../assets/icon-category-movie.svg"
+                                    : "../../assets/icon-category-tv.svg"
+                                }
+                                alt=""
+                              />
+                              {x.category}
+                            </span>
+                            <div className="separator_point"></div>
+                            <span>{x.rating}</span>
+                          </div>
+                          <span className="title">{x.title}</span>
+                        </div>
                       </div>
-                    </div>
-                  );
+                    );
+                  }
+                }
+              }
             })}
         </div>
       </div>

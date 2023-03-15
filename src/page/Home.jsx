@@ -15,15 +15,20 @@ export default function Home({
   setDataVideos,
   numberResults,
   setNumberResults,
-  setUserConnected
+  setUserConnected,
+  setMessageNotLogIn,
 }) {
   useEffect(() => {
     setSearchMoviesSeries("");
   }, []);
 
   return (
-    <div id="app_container">
-      <NavBar userConnected={userConnected} setUserConnected={setUserConnected}/>
+    <div className="app_container lg:pl-[9rem]">
+      <NavBar
+        userConnected={userConnected}
+        setUserConnected={setUserConnected}
+      />
+
       <main id="home">
         <SearchBar
           dataVideos={dataVideos}
@@ -34,20 +39,28 @@ export default function Home({
 
         {searchMoviesSeries === "" ? (
           <>
-            <Trending setDataVideos={setDataVideos} dataVideos={dataVideos} />
+            <Trending
+              setDataVideos={setDataVideos}
+              dataVideos={dataVideos}
+              setMessageNotLogIn={setMessageNotLogIn}
+            />
             <ContainerVideos
+              userConnected={userConnected}
               setDataVideos={setDataVideos}
               dataVideos={dataVideos}
               setUserBookmarksVideos={setUserBookmarksVideos}
+              setMessageNotLogIn={setMessageNotLogIn}
             />
           </>
         ) : (
           <ContainerResultsSearch
-          setDataVideos={setDataVideos}
-          searchMoviesSeries={searchMoviesSeries}
-          dataVideos={dataVideos}
-          numberResults={numberResults}
-          setUserBookmarksVideos={setUserBookmarksVideos}
+            setDataVideos={setDataVideos}
+            searchMoviesSeries={searchMoviesSeries}
+            dataVideos={dataVideos}
+            numberResults={numberResults}
+            setUserBookmarksVideos={setUserBookmarksVideos}
+            userConnected={userConnected}
+            setMessageNotLogIn={setMessageNotLogIn}
           />
         )}
       </main>

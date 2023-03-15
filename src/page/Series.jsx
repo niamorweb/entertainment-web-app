@@ -15,13 +15,13 @@ export default function Series({
   setNumberResults,
   setUserConnected,
   setUserBookmarksVideos,
+  setMessageNotLogIn,
 }) {
   useEffect(() => {
     setSearchMoviesSeries("");
   }, []);
   return (
-    <div id="app_container">
-      <NavBar userConnected={userConnected} setUserConnected={setUserConnected}/>
+    <div className="app_container">
       <main>
         <SearchBar
           dataVideos={dataVideos}
@@ -33,6 +33,7 @@ export default function Series({
             setDataVideos={setDataVideos}
             dataVideos={dataVideos}
             setUserBookmarksVideos={setUserBookmarksVideos}
+            setMessageNotLogIn={setMessageNotLogIn}
           />
         ) : (
           <ContainerResultsSearch
@@ -41,6 +42,8 @@ export default function Series({
             dataVideos={dataVideos}
             numberResults={numberResults}
             setUserBookmarksVideos={setUserBookmarksVideos}
+            setMessageNotLogIn={setMessageNotLogIn}
+            userConnected={userConnected}
           />
         )}
       </main>

@@ -50,6 +50,12 @@ h1 {
   font-size: var(--font-size-heading-s);
 }
 
+.app_container {
+  padding-bottom: 7rem;
+  max-width: 1800px;
+  margin: auto;
+}
+
 @media (min-width: 600px) {
   h1 {
     font-size: var(--font-size-heading-m);
@@ -60,98 +66,11 @@ h1 {
     font-size: var(--font-size-heading-l);
   }
 }
-@media (min-width: 1000px) {
-  #app_container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-  }
-  main {
-    width: 85%;
-  }
-}
-#navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--color-semi-dark-blue);
-  padding: 15px;
-  position: relative;
-}
-#navbar .active svg path {
-  fill: var(--color-white);
-}
-#navbar .nav-pages {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-#navbar .nav-pages svg {
-  width: 19px;
-  height: 19px;
-}
-#navbar .logo img {
-  width: 24px;
-}
-#navbar .account img {
-  cursor: pointer;
-  width: 24px;
-}
-#navbar .account_box {
-  width: 13rem;
-  position: absolute;
-  right: 0;
-  display: flex;
-  background-color: var(--color-semi-dark-blue);
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  bottom: -1rem;
-  transform: translateY(100%);
-}
-#navbar .account_box button {
-  background-color: var(--color-red);
-  border: none;
-  color: var(--color-white);
-  height: 1.8rem;
-  border-radius: 0.4rem;
-  font-weight: bolder;
-  width: 100%;
-}
-
-@media screen and (min-width: 1000px) {
-  #navbar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--color-semi-dark-blue);
-    padding: 29px;
-    height: calc(100vh - 58px);
-    border-radius: 15px;
-  }
-  #navbar .logo img {
-    width: 35px !important;
-  }
-  #navbar .nav-pages {
-    flex-direction: column;
-    gap: 40px;
-  }
-  #navbar .nav-pages img {
-    width: 20px;
-  }
-  #navbar .account img {
-    width: 40px;
-    border: 2px solid var(--color-white);
-    border-radius: 50%;
-  }
-  #navbar .account_box {
-    z-index: 3;
-    width: 13rem;
-    right: unset;
-    left: 0.4rem;
-    left: 8rem;
-    bottom: 8rem;
+@media (min-width: 1024px) {
+  .app_container {
+    padding-bottom: 0;
+    padding-left: 7rem;
+    padding-top: 3rem;
   }
 }
 #searchBar {
@@ -294,6 +213,36 @@ h1 {
     display: block !important;
   }
 }
+.message_not_login {
+  background-color: rgba(255, 255, 255, 0.815);
+  color: black;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-animation: translationAnim 0.4s;
+          animation: translationAnim 0.4s;
+}
+
+@-webkit-keyframes translationAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes translationAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 #containerMovies {
   display: flex;
   flex-direction: column;
@@ -304,6 +253,55 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 500px;
+  margin: auto;
+}
+.account__name {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: start;
+}
+.account__name input {
+  background: transparent;
+  border: 1px solid rgb(147, 147, 147);
+  padding: 0.5rem 2rem 0.5rem 0.7rem;
+  border-radius: 8px;
+  color: white;
+}
+.account__container_list_img {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.account__list_img {
+  display: flex;
+  overflow: auto;
+  gap: 20px;
+  padding: 1rem 1rem 1rem 0.3rem;
+}
+.account__list_img .account__box {
+  border-radius: 12px;
+  width: 100px;
+}
+.account__list_img .account__box.selected {
+  outline: 2px solid red;
+}
+.account__submit_account {
+  background-color: var(--color-red);
+  border: none;
+  padding: 0.4rem;
+  border-radius: 10px;
+  color: var(--color-black);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .grid_container__videos {

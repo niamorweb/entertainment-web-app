@@ -7,6 +7,7 @@ export default function SearchBar({
   setNumberResults,
   dataVideos,
 }) {
+  const [currentSearch, setCurrentSearch] = useState("");
   let varPathname = window.location.pathname;
   let placeholder = "Search for movies or TV series";
   let category = "";
@@ -29,27 +30,42 @@ export default function SearchBar({
     isBookmarked = true;
   }
 
+  const handleCurrentSearch = (e) => {
+    setCurrentSearch(e.target.value);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearchMoviesSeries(e.target[1].value);
-    console.log("sssssssss =  =  ", e.target[1].value);
-
-    handleCounter(e);
+    setSearchMoviesSeries(currentSearch);
+    handleCounter();
   };
 
-  const handleCounter = (e) => {
+  const handleCounter = () => {
     let counter = 0;
-    for (const obj of dataVideos) {
-      if (obj.category === category || category === "") {
-        if (obj.isBookmarked === isBookmarked || isBookmarked === null) {
-          if (obj.title.includes(e.target[1].value)) {
-            counter++;
-          }
+    dataVideos.map((x) => {
+      if (varPathname === "/movies") {
+        if (x.title.includes(currentSearch) && x.category === "Movie") {
+          console.log(x.title);
+          counter++;
+        }
+      } else if (varPathname === "/series") {
+        if (x.title.includes(currentSearch) && x.category === "TV Series**") {
+          console.log(x.title);
+          counter++;
+        }
+      } else if (varPathname === "/bookmarks") {
+        if (x.title.includes(currentSearch) && x.isBookmarked === true) {
+          console.log(x.title);
+          counter++;
+        }
+      } else {
+        if (x.title.includes(currentSearch)) {
+          console.log(x.title);
+          counter++;
         }
       }
-    }
+    });
     setNumberResults(counter);
-    console.log(counter);
+    console.log("counter = = ", counter);
   };
 
   return (
@@ -58,7 +74,12 @@ export default function SearchBar({
         <button>
           <img src="../../../assets/icon-search.svg" alt="" />
         </button>
-        <input type="search" placeholder={placeholder} />
+        <input
+          onChange={handleCurrentSearch}
+          value={currentSearch}
+          type="search"
+          placeholder={placeholder}
+        />
       </form>
     </section>
   );
