@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ContainerResultsSearch({
   dataVideos,
@@ -29,6 +30,12 @@ export default function ContainerResultsSearch({
     category = "TV Series";
     isBookmarked = null;
   }
+
+  const navigate = useNavigate();
+
+  const handleSeeContent = (x) => {
+    navigate("/details/" + x.id);
+  };
 
   const handleBookmarkVideo = (e) => {
     if (userConnected === true) {
@@ -69,7 +76,8 @@ export default function ContainerResultsSearch({
                     return (
                       <div className="content_video">
                         <img
-                          className="img_video"
+                          onClick={() => handleSeeContent(x)}
+                          className="img_video cursor-pointer"
                           src={x.thumbnail.regular.small}
                           alt=""
                         />
