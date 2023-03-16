@@ -73,6 +73,10 @@ h1 {
     padding-top: 3rem;
   }
 }
+#navbar .active svg path {
+  fill: var(--color-white);
+}
+
 #searchBar {
   margin-top: 2rem;
   color: white;

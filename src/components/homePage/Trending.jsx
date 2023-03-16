@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Trending({ dataVideos, setDataVideos }) {
+  const navigate = useNavigate();
+
+  const handleSeeContent = (x) => {
+    navigate("/details/" + x.id);
+  };
   const handleBookmark = (e) => {
     const copyDataVideos = [...dataVideos];
     const title = e.title;
@@ -21,17 +27,20 @@ export default function Trending({ dataVideos, setDataVideos }) {
             return (
               <div className="content__trending__video">
                 <img
-                  className="img_content img_small"
+                  onClick={() => handleSeeContent(x)}
+                  className="img_content img_small cursor-pointer"
                   src={x.thumbnail.regular.small}
                   alt=""
                 />
                 <img
-                  className="img_content img_medium"
+                  onClick={() => handleSeeContent(x)}
+                  className="img_content img_medium cursor-pointer"
                   src={x.thumbnail.regular.medium}
                   alt=""
                 />
                 <img
-                  className="img_content img_large"
+                  onClick={() => handleSeeContent(x)}
+                  className="img_content img_large cursor-pointer"
                   src={x.thumbnail.regular.large}
                   alt=""
                 />
