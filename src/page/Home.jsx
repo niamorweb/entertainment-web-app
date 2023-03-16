@@ -35,8 +35,10 @@ export default function Home({
         {searchMoviesSeries === "" ? (
           <>
             <Trending
+              userConnected={userConnected}
               setDataVideos={setDataVideos}
               dataVideos={dataVideos}
+              setUserBookmarksVideos={setUserBookmarksVideos}
               setMessageNotLogIn={setMessageNotLogIn}
             />
             <ContainerVideos

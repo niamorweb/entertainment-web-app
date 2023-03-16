@@ -1,20 +1,33 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Trending({ dataVideos, setDataVideos }) {
+export default function Trending({
+  dataVideos,
+  setDataVideos,
+  userConnected,
+  setMessageNotLogIn,
+}) {
   const navigate = useNavigate();
 
   const handleSeeContent = (x) => {
     navigate("/details/" + x.id);
   };
-  const handleBookmark = (e) => {
-    const copyDataVideos = [...dataVideos];
-    const title = e.title;
-    var foundIndex = dataVideos.findIndex((e) => e.title == title);
-    if (copyDataVideos[foundIndex].isBookmarked === true) {
-      copyDataVideos[foundIndex].isBookmarked = false;
-    } else copyDataVideos[foundIndex].isBookmarked = true;
-    setDataVideos(copyDataVideos);
+
+  const handleBookmarkVideo = (e) => {
+    if (userConnected === true) {
+      const copyDataVideos = [...dataVideos];
+      const title = e.title;
+      var foundIndex = dataVideos.findIndex((e) => e.title == title);
+      if (copyDataVideos[foundIndex].isBookmarked === true) {
+        copyDataVideos[foundIndex].isBookmarked = false;
+      } else copyDataVideos[foundIndex].isBookmarked = true;
+      setDataVideos(copyDataVideos);
+    } else {
+      setMessageNotLogIn(true);
+      setTimeout(() => {
+        setMessageNotLogIn(false);
+      }, 5000);
+    }
   };
 
   return (
@@ -65,7 +78,7 @@ export default function Trending({ dataVideos, setDataVideos }) {
                   <span className="title">{x.title}</span>
                 </div>
                 <div
-                  onClick={() => handleBookmark(x)}
+                  onClick={() => handleBookmarkVideo(x)}
                   className="bookmark cursor-pointer"
                 >
                   {x.isBookmarked ? (

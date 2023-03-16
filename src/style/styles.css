@@ -220,6 +220,8 @@ h1 {
   background-color: var(--color-white);
   color: var(--color-dark-blue);
   padding: 1rem 3rem;
+  width: 80%;
+  max-width: 500px;
   border-radius: 10px;
   position: fixed;
   top: 60px;
@@ -227,6 +229,9 @@ h1 {
   transform: translateX(-50%);
   -webkit-animation: translationAnim 0.2s;
           animation: translationAnim 0.2s;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
 }
 
 @-webkit-keyframes translationAnim {
