@@ -67,60 +67,55 @@ export default function ContainerResultsSearch({
             )
 
             .map((x) => {
-              if (x.title.includes(searchMoviesSeries)) {
-                if (x.category === category || category === "") {
-                  if (
-                    x.isBookmarked === isBookmarked ||
-                    isBookmarked === null
-                  ) {
-                    return (
-                      <div className="content_video">
-                        <img
-                          onClick={() => handleSeeContent(x)}
-                          className="img_video cursor-pointer"
-                          src={x.thumbnail.regular.small}
-                          alt=""
-                        />
-                        <div
-                          onClick={() => handleBookmarkVideo(x)}
-                          className="bookmark"
-                        >
-                          {x.isBookmarked ? (
-                            <img
-                              src="../../../assets/icon-bookmark-full.svg"
-                              alt=""
-                            />
-                          ) : (
-                            <img
-                              src="../../../assets/icon-bookmark-empty.svg"
-                              alt=""
-                            />
-                          )}
-                        </div>
-                        <div className="infos-and-title">
-                          <div className="infos">
-                            <span>{x.year}</span>
-                            <div className="separator_point"></div>
-                            <span className="category">
-                              {" "}
-                              <img
-                                src={
-                                  x.category === "Movie"
-                                    ? "../../assets/icon-category-movie.svg"
-                                    : "../../assets/icon-category-tv.svg"
-                                }
-                                alt=""
-                              />
-                              {x.category}
-                            </span>
-                            <div className="separator_point"></div>
-                            <span>{x.rating}</span>
-                          </div>
-                          <span className="title">{x.title}</span>
-                        </div>
+              if (x.category === category || category === "") {
+                if (x.isBookmarked === isBookmarked || isBookmarked === null) {
+                  return (
+                    <div className="content_video">
+                      <img
+                        onClick={() => handleSeeContent(x)}
+                        className="img_video cursor-pointer"
+                        src={x.thumbnail.regular.small}
+                        alt=""
+                      />
+                      <div
+                        onClick={() => handleBookmarkVideo(x)}
+                        className="bookmark"
+                      >
+                        {x.isBookmarked ? (
+                          <img
+                            src="../../../assets/icon-bookmark-full.svg"
+                            alt=""
+                          />
+                        ) : (
+                          <img
+                            src="../../../assets/icon-bookmark-empty.svg"
+                            alt=""
+                          />
+                        )}
                       </div>
-                    );
-                  }
+                      <div className="infos-and-title">
+                        <div className="infos">
+                          <span>{x.year}</span>
+                          <div className="separator_point"></div>
+                          <span className="category">
+                            {" "}
+                            <img
+                              src={
+                                x.category === "Movie"
+                                  ? "../../assets/icon-category-movie.svg"
+                                  : "../../assets/icon-category-tv.svg"
+                              }
+                              alt=""
+                            />
+                            {x.category}
+                          </span>
+                          <div className="separator_point"></div>
+                          <span>{x.rating}</span>
+                        </div>
+                        <span className="title">{x.title}</span>
+                      </div>
+                    </div>
+                  );
                 }
               }
             })}
